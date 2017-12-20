@@ -25,15 +25,12 @@ int main () {
 	  perror("The message wasn't written");
 	
 	printf("Number of messages: %ld\n", charac.mq_curmsgs);	
-//	push = mq_send(Que, an_buf, strlen(an_buf), an_prio);
 
 	ssize_t pop;
 	char buf[1024];	
 	unsigned int *prio;
 	if (charac.mq_curmsgs == 0) 
 	  printf("Queue is empty\n");
-//	else 
-//	  while (charac.mq_curmsgs != 0) {
 	for (i = 0; i < 3; i++) {
 	    pop = mq_receive(Que, buf, charac.mq_msgsize, prio);
 	    printf("Message: %s\n", buf);
@@ -41,7 +38,6 @@ int main () {
 	      perror("Queue couldn't be readed");
 	    }
 	}
-//	  }
 
 	mq_close(Que);
 	int linking  = mq_unlink("/MessageTable");

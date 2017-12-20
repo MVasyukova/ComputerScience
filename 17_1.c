@@ -6,10 +6,6 @@
 #include <stdlib.h>
 
 int main(int argc, char * argv[]) {
-//	char * Name;
-//	Name = malloc(strlen(argv[2])+4);
-//	strcat(Name, "\\");
-//	strcat(Name, argv[2]);
 	mqd_t Que = mq_open(argv[argc - 2], O_WRONLY);
 	if (Que == -1) {
 		perror("Message queue wasn't open");

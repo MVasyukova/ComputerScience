@@ -18,13 +18,12 @@ int main () {
 	uint64_t i = 0;
 	pthread_t worker;
 	if (errno = pthread_create(&worker, NULL, thr_worker, &i)) {
-	  perror("Thread couldn't be created");
+		perror("Thread couldn't be created");
 	}
 	int j;
 	for (j = 0; j < 10; j++) {
-	  sleep (1);
-//	  unsigned long long m =  (unsigned long long)i;
-	  printf("i = %llu\n", (unsigned long long)i);
+		sleep (1);
+		printf("i = %llu\n", (unsigned long long)i);
 	}
 	pthread_kill(worker,SIGINT);
 	return 0;
